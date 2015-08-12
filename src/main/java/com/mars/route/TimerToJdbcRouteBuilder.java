@@ -1,12 +1,10 @@
 package com.mars.route;
 
 import org.apache.camel.builder.RouteBuilder;
-import org.springframework.stereotype.Component;
 
 /**
  * A Camel Java DSL Router
  */
-@Component
 public class TimerToJdbcRouteBuilder extends RouteBuilder {
 
     /**
@@ -15,7 +13,7 @@ public class TimerToJdbcRouteBuilder extends RouteBuilder {
     public void configure() {
         from("timer://timer1?period=5s&daemon=false")
                 .setBody().constant("select * from user limit 10;")
-                .to("jdbc:dataSource")
+                .to("jdbc:hrSource")
                 .split().simple("${body}")
                 .to("stream:out")
         ;

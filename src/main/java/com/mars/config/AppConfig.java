@@ -23,7 +23,7 @@ public class AppConfig {
         String path = ConfigPath.getFusionConfigRootPath();
         log.info("Loading properties path = " + path);
         PropertyPlaceholderConfigurer propertyPlaceholderConfigurer = new PropertyPlaceholderConfigurer();
-        propertyPlaceholderConfigurer.setLocations(new PathResource(path + "security.properties"));
+        propertyPlaceholderConfigurer.setLocations(new PathResource(path + "hr-eip.properties"));
         propertyPlaceholderConfigurer.setIgnoreUnresolvablePlaceholders(true);
         return propertyPlaceholderConfigurer;
     }
