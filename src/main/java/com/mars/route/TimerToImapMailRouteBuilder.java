@@ -16,7 +16,7 @@ public class TimerToImapMailRouteBuilder extends RouteBuilder {
      */
     public void configure() {
         CronScheduledRoutePolicy startPolicy = new CronScheduledRoutePolicy();
-        startPolicy.setRouteStartTime("*/3 * * * * ?");
+        startPolicy.setRouteStartTime("*/5 * * * * ?");
 
         from("imap://localhost?username=mars@mars.bb.com&password=123456&debugMode=true&delete=false&unseen=true&consumer.delay=60000")
                 .routePolicy(startPolicy)
