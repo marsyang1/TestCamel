@@ -1,20 +1,24 @@
 package com.mars.route;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
 
 /**
  * A Camel Java DSL Router
  */
+@Component
 public class GmailStreamRouteBuilder extends RouteBuilder {
 
     /**
      * Let's configure the Camel routing rules using Java code...
      */
     public void configure() {
-        from("imaps://imap.gmail.com?debugMode=true&username=fusion@mail.chungyo.net&password=ecj84web&delete=false&unseen=true&consumer.delay=60000")
-                .to("stream:out")
-                .to("file:test")
-        ;
+
+
+        from("timer://timer1?period=10s&daemon=false")
+                .to("imaps://localhost?username=mars@mars.bb.com&password=123456&debugMode=true&delete=false&unseen=true&consumer.delay=60000")
+                .convertBodyTo(String.class)
+                .log("mail >> ${body}");
     }
 
 }

@@ -1,6 +1,7 @@
 package com.mars.route;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +9,8 @@ import java.util.Map;
 /**
  * A Camel Java DSL Router
  */
-public class TimerToSendMailRouteBuilder extends RouteBuilder {
+@Component
+public class TimerToImapMailRouteBuilder extends RouteBuilder {
 
 
     /**
