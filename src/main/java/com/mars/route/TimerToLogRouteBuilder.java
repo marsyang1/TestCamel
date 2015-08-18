@@ -5,7 +5,6 @@ import org.apache.camel.builder.RouteBuilder;
 /**
  * A Camel Java DSL Router
  */
-//@Component
 public class TimerToLogRouteBuilder extends RouteBuilder {
 
     /**
