@@ -1,10 +1,12 @@
 package com.mars.route;
 
 import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
 
 /**
  * A Camel Java DSL Router
  */
+@Component
 public class TimerToImapMailRouteBuilder extends RouteBuilder {
 
 
