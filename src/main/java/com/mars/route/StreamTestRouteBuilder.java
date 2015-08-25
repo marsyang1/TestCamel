@@ -13,7 +13,7 @@ public class StreamTestRouteBuilder extends RouteBuilder {
     public void configure() {
         from("stream:in")
                 .to("stream:out")
-                .to("file:test")
+//                .to("file:test")
         ;
     }
 
