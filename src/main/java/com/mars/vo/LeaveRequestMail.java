@@ -14,14 +14,15 @@ import java.util.Date;
 @Data
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class LeaveRequestMail {
+public class LeaveRequestMail implements HrMail{
 
+    private String type;
     private String empId;
     private String username;
     private String depName;
     private String url;
     private String documentNo;
-    private String type;
+    private String leaveType;
     private String subType;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy/MM/dd")
     private Date startDate;

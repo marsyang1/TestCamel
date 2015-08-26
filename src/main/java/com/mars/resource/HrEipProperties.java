@@ -31,6 +31,8 @@ public class HrEipProperties {
     private int maxStatements;
     @Value("${cy.hr.eip.datasource.sqlserver.test-connection:true}")
     private boolean testConnection;
+    @Value("${cy.hr.eip.rest.client.hr-rest.url}")
+    private String hrRestUrl;
 
     @PostConstruct
     void init() {
@@ -43,6 +45,7 @@ public class HrEipProperties {
         log.info("minPoolSize = " + minPoolSize);
         log.info("maxStatements = " + maxStatements);
         log.info("testConnection = " + testConnection);
+        log.info("hrRestUrl = " + hrRestUrl);
     }
 
 }

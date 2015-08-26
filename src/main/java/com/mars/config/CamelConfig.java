@@ -1,8 +1,12 @@
 package com.mars.config;
 
+import com.mars.converter.AlertTypeConverter;
+import com.mars.vo.Alert;
+import com.mars.vo.LeaveRequestMail;
 import org.apache.camel.CamelContext;
 import org.apache.camel.component.metrics.routepolicy.MetricsRoutePolicyFactory;
 import org.apache.camel.spring.javaconfig.CamelConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,6 +14,10 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class CamelConfig extends CamelConfiguration {
+
+    @Autowired
+    private AlertTypeConverter converter;
+
 
     @Override
     protected void setupCamelContext(CamelContext camelContext) throws Exception {
@@ -20,6 +28,8 @@ public class CamelConfig extends CamelConfiguration {
 
         // enable performance metrics
         camelContext.addRoutePolicyFactory(new MetricsRoutePolicyFactory());
+        camelContext.getTypeConverterRegistry().addTypeConverter(Alert.class, LeaveRequestMail.class, converter);
         super.setupCamelContext(camelContext);
     }
+
 }

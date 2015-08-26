@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
@@ -61,6 +62,13 @@ public class DataConfig {
             log.error("dataSource get Driver is fail", e);
         }
         return dataSource;
+    }
+
+    @Bean
+    public JdbcTemplate fusionJdbcTemplate() {
+        JdbcTemplate template = new JdbcTemplate();
+        template.setDataSource(fusionSource());
+        return template;
     }
 
 }
